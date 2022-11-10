@@ -1,0 +1,9 @@
+2022-11-10 02:10:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO FIGURA VALUES(1, 'CIRCULO', 'ROJO'[*];"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO FIGURA VALUES(1, 'CIRCULO', 'ROJO'; [42001-214]
+2022-11-10 02:12:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]COUNT * FROM FIGURA WHERE(TYPE = 'CIRCULO' AND COLOR='ROJO')"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+COUNT * FROM FIGURA WHERE(TYPE = 'CIRCULO' AND COLOR='ROJO') [42001-214]
+2022-11-10 02:12:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]COUNT(ID) FROM FIGURA WHERE(TYPE = 'CIRCULO' AND COLOR='ROJO')"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+COUNT(ID) FROM FIGURA WHERE(TYPE = 'CIRCULO' AND COLOR='ROJO') [42001-214]
