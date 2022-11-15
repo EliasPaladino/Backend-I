@@ -15,5 +15,23 @@ public class Paciente {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
