@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="705601a6-e633-4abe-93d2-58e2389c7abe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../C13 - Consultas y transacciones sobre la bd/C13A/out/production/C13A/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../C13 - Consultas y transacciones sobre la bd/C13A/out/production/C13A/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C13 - Consultas y transacciones sobre la bd/C13A/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../C13 - Consultas y transacciones sobre la bd/C13A/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C13 - Consultas y transacciones sobre la bd/C13A/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../C13 - Consultas y transacciones sobre la bd/C13A/test.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/clase13.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/src/presencial/Cuenta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase13/src/presencial/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase14/clase14.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase15/clase15.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../clase15v2/clase15.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Hg8iNFqBPb54vcAk9B7rfExsIO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="705601a6-e633-4abe-93d2-58e2389c7abe" name="Changes" comment="" />
+      <created>1668695492543</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668695492543</updated>
+    </task>
+    <servers />
+  </component>
+</project>

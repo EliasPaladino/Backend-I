@@ -12,8 +12,8 @@ public class Test {
                 + " PASSWORD VARCHAR(255) "
                 + ")";
 
-    private static final String INSERT_SQL = "INSERT INTO PACIENTE (ID, NAME, LASTNAME, ADDRESS, USERNAME, PASSWORD) VALUES(?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_SQL = "UPDATE PACIENTE SET PASSWORD = ? WHERE USER = ?";
+    private static final String INSERT_SQL = "INSERT INTO PACIENTE(ID, NAME, LASTNAME, ADDRESS, USERNAME, PASSWORD) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_SQL = "UPDATE PACIENTE SET PASSWORD = ? WHERE USERNAME = ?";
 
     public static void main(String[] args) throws Exception {
         Paciente paciente = new Paciente("Elias", "Paladino", "Calle falsa 123", "Paladain", "123");
@@ -35,19 +35,25 @@ public class Test {
             psInsert.setString(5, paciente.getUser());
             psInsert.setString(6, paciente.getPassword());
 
+            psInsert.executeUpdate();
+
             connection.setAutoCommit(false);
 
             PreparedStatement psUpdate = connection.prepareStatement(UPDATE_SQL);
 
             psUpdate.setString(1, "abc123");
-            psUpdate.setString(2, "Paladain");
+            psUpdate.setString(2, paciente.getUser());
+
+            psUpdate.executeUpdate();
+
+            int a = 4/0;
 
             connection.commit();
             connection.setAutoCommit(true);
 
             String sql = "SELECT * FROM PACIENTE";
-            Statement stmt2 = connection.createStatement();
-            ResultSet rd = stmt2.executeQuery(sql);
+            //Statement stmt2 = connection.createStatement();
+            ResultSet rd = stmt.executeQuery(sql);
             while (rd.next()){
                 System.out.println(rd.getString(5) + " " + rd.getString(6));
             }
@@ -60,9 +66,8 @@ public class Test {
                     System.out.println(ex.toString());
                 }
             }
-            System.out.println("No hay conexion");
         } finally {
-           // connection.close();
+            connection.close();
         }
 
         Connection connection1 = getConnection();
@@ -76,6 +81,6 @@ public class Test {
 
     public static Connection getConnection() throws Exception {
         Class.forName("org.h2.Driver").newInstance();
-        return DriverManager.getConnection("jdbc:h2:" + "./test", "sa", "");
+        return DriverManager.getConnection("jdbc:h2:~/pacientes", "sa", "");
     }
 }
