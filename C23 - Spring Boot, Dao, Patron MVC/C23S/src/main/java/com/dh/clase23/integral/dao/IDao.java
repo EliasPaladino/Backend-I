@@ -6,7 +6,7 @@ public interface IDao <T> {
 
     void guardar(T t);
 
-    T buscar(int id);
+    T buscar(Long id);
 
     List<T> listarElementos();
 

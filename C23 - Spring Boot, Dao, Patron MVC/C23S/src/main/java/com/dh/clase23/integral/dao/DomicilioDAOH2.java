@@ -41,7 +41,7 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
     }
 
     @Override
-    public Domicilio buscar(int id) {
+    public Domicilio buscar(Long id) {
 
         Domicilio domicilio = null;
         Connection connection = null;
