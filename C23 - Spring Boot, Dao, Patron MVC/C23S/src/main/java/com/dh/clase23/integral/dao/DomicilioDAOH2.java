@@ -96,8 +96,6 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
 
             }
 
-            return domicilios;
-
         } catch ( Exception e ) {
             e.printStackTrace();
         }
@@ -108,6 +106,8 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
                 ex.printStackTrace();
             }
         }
+
+        return domicilios;
 
     }
 
