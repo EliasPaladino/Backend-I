@@ -27,5 +27,23 @@ public class Paciente {
         this.fechaIngreso = fechaIngreso;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public LocalDate getFechaIngreso() {
+        return fechaIngreso;
+    }
 }

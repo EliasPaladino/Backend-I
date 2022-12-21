@@ -1,7 +1,6 @@
 package com.dh.clase23.integral.dao;
 
 import com.dh.clase23.integral.dominio.Domicilio;
-import com.dh.clase23.integral.dominio.Paciente;
 
 import java.sql.*;
 import java.util.ArrayList;
