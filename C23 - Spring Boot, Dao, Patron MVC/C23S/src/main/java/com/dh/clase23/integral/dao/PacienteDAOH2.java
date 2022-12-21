@@ -3,6 +3,7 @@ package com.dh.clase23.integral.dao;
 import com.dh.clase23.integral.dominio.Paciente;
 
 import java.sql.*;
+import java.time.ZoneId;
 import java.util.List;
 
 public class PacienteDAOH2 implements IDao<Paciente> {
@@ -38,7 +39,36 @@ public class PacienteDAOH2 implements IDao<Paciente> {
 
     @Override
     public Paciente buscar(Long id) {
-        return null;
+
+        Connection connection = null;
+        Paciente paciente = null;
+
+        try {
+            connection = getConnection();
+
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM paciente WHERE id = ?");
+            ps.setLong(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            paciente = new Paciente(rs.getString("nombre"),
+                                    rs.getString("apellido"),
+                                    rs.getString("email"),
+                                    rs.getString("dni"),
+                                    rs.getDate("fecha_ingreso").toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                                    rs.getLong("domicilio"));
+        }
+        catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+
+        return paciente;
     }
 
     @Override
