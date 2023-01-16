@@ -2,11 +2,13 @@ package com.dh.clase23.integrador.dao;
 
 import com.dh.clase23.integrador.dominio.Domicilio;
 import com.dh.clase23.integrador.dominio.Paciente;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PacienteDAOH2 implements IDao<Paciente> {
     private static Connection getConnection() throws Exception {
         Class.forName("org.h2.Driver").newInstance();
