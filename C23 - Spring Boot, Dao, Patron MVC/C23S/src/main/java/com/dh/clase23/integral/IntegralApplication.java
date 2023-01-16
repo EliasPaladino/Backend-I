@@ -34,8 +34,8 @@ public class IntegralApplication {
 	public static void main(String[] args) {
 		cargarBD();
 
-		Domicilio domicilio1 = new Domicilio(1L, "Calle falsa", "2233", "Trujillo", "Jujuy");
-		Domicilio domicilio2 = new Domicilio(2L, "Avenida siempre viva", "1234", "Virrey del pino", "Buenos Aires");
+		Domicilio domicilio1 = new Domicilio( "Calle falsa", "2233", "Trujillo", "Jujuy");
+		Domicilio domicilio2 = new Domicilio( "Avenida siempre viva", "1234", "Virrey del pino", "Buenos Aires");
 
 		DomicilioService domicilioService = new DomicilioService();
 

@@ -17,7 +17,7 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
 
             connection = getConnection();
 
-            PreparedStatement insertSql = connection.prepareStatement("INSERT INTO DOMICILIO( CALLE, NUMERO, LOCALIDAD, PROVINCIA) VALUES( ?, ?, ?, ?);");
+            PreparedStatement insertSql = connection.prepareStatement("INSERT INTO domicilios (calle, numero, localidad, provincia) VALUES( ?, ?, ?, ?);");
 
             insertSql.setString(1, domicilio.getCalle());
             insertSql.setString(2, domicilio.getNumero());
@@ -49,7 +49,7 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
 
             connection = getConnection();
 
-            PreparedStatement pStmt = connection.prepareStatement("SELECT * FROM DOMICILIO WHERE ID = ?");
+            PreparedStatement pStmt = connection.prepareStatement("SELECT * FROM domicilios WHERE ID = ?");
             pStmt.setLong(1, id);
 
             ResultSet rs = pStmt.executeQuery();
@@ -85,7 +85,7 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
             connection = getConnection();
 
             Statement stmt = connection.createStatement();
-            String query = "SELECT * FROM DOMICILIO";
+            String query = "SELECT * FROM domicilios";
 
             ResultSet rs = stmt.executeQuery(query);
 
