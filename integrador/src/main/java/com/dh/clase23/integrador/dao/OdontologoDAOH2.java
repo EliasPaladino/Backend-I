@@ -1,11 +1,13 @@
 package com.dh.clase23.integrador.dao;
 
 import com.dh.clase23.integrador.dominio.Odontologo;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class OdontologoDAOH2 implements IDao<Odontologo> {
     private static Connection getConnection() throws Exception {
         Class.forName("org.h2.Driver").newInstance();

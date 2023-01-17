@@ -30,5 +30,5 @@ INSERT INTO domicilios(calle, numero, localidad, provincia) VALUES ('Calle C', 3
 INSERT INTO odontologos(apellido, nombre, matricula) VALUES ('Suarez', 'Adolfo', 'asd123');
 INSERT INTO odontologos(apellido, nombre, matricula) VALUES ('Fernandez', 'Martin', 'aqw332');
 
-INSERT INTO pacientes(apellido, nombre, email, dni, fecha_ingreso, domicilio_id) VALUES ('Paladino', 'Elias', 'elias@gmail.com', 12345, '2023-01-16',1, 1);
-INSERT INTO pacientes(apellido, nombre, email, dni, fecha_ingreso, domicilio_id) VALUES ('Baspineiro', 'Rodolfo', 'rodolfo@gmail.com', 123212, '2023-01-16',2, 2);
+INSERT INTO pacientes(apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) VALUES ('Paladino', 'Elias', 'elias@gmail.com', 12345, '2023-01-16',1, 1);
+INSERT INTO pacientes(apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) VALUES ('Baspineiro', 'Rodolfo', 'rodolfo@gmail.com', 123212, '2023-01-16',2, 2);
