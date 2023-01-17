@@ -10,8 +10,9 @@ public class Paciente {
     private int dni;
     private LocalDate fechaIngreso;
     private Domicilio domicilio;
+    private Odontologo odontologo;
 
-    public Paciente(int id, String apellido, String nombre, String email, int dni, LocalDate fechaIngreso, Domicilio domicilio) {
+    public Paciente(int id, String apellido, String nombre, String email, int dni, LocalDate fechaIngreso, Domicilio domicilio, Odontologo odontologo) {
         this.id = id;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -19,15 +20,17 @@ public class Paciente {
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
+        this.odontologo = odontologo;
     }
 
-    public Paciente(String apellido, String nombre, String email, int dni, LocalDate fechaIngreso, Domicilio domicilio) {
+    public Paciente(String apellido, String nombre, String email, int dni, LocalDate fechaIngreso, Domicilio domicilio, Odontologo odontologo) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.email = email;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
+        this.odontologo = odontologo;
     }
 
     public int getId() {
@@ -84,5 +87,13 @@ public class Paciente {
 
     public void setDomicilio(Domicilio domicilio) {
         this.domicilio = domicilio;
+    }
+
+    public Odontologo getOdontologo() {
+        return odontologo;
+    }
+
+    public void setOdontologo(Odontologo odontologo) {
+        this.odontologo = odontologo;
     }
 }

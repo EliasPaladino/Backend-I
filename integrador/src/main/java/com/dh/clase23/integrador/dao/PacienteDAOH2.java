@@ -1,6 +1,7 @@
 package com.dh.clase23.integrador.dao;
 
 import com.dh.clase23.integrador.dominio.Domicilio;
+import com.dh.clase23.integrador.dominio.Odontologo;
 import com.dh.clase23.integrador.dominio.Paciente;
 import org.springframework.stereotype.Component;
 
@@ -21,10 +22,12 @@ public class PacienteDAOH2 implements IDao<Paciente> {
         List<Paciente> listaPacientes = new ArrayList<>();
         Paciente paciente = null;
         Domicilio domicilio = null;
+        Odontologo odontologo = null;
 
         try {
             connection = getConnection();
             DomicilioDAOH2 domicilioDAOH2 = new DomicilioDAOH2();
+            OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
 
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM pacientes");
             ResultSet rs = preparedStatement.executeQuery();
@@ -32,8 +35,12 @@ public class PacienteDAOH2 implements IDao<Paciente> {
             while (rs.next()){
                 int id_dom = rs.getInt(7);
                 domicilio = domicilioDAOH2.buscarPorId(id_dom);
+
+                int id_odontologo = rs.getInt(8);
+                odontologo = odontologoDAOH2.buscarPorId(id_odontologo);
+
                 paciente = new Paciente(rs.getInt(1), rs.getString(2), rs.getString(3),
-                                        rs.getString(4), rs.getInt(5), rs.getDate(6).toLocalDate(), domicilio);
+                                        rs.getString(4), rs.getInt(5), rs.getDate(6).toLocalDate(), domicilio, odontologo);
                 listaPacientes.add(paciente);
             }
 
@@ -60,10 +67,12 @@ public class PacienteDAOH2 implements IDao<Paciente> {
         Connection connection = null;
         Paciente paciente = null;
         Domicilio domicilio = null;
+        Odontologo odontologo = null;
 
         try {
             connection = getConnection();
             DomicilioDAOH2 domicilioDAOH2 = new DomicilioDAOH2();
+            OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
 
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM pacientes WHERE email = ?");
             preparedStatement.setString(1, email);
@@ -72,8 +81,12 @@ public class PacienteDAOH2 implements IDao<Paciente> {
             while (rs.next()){
                 int id_dom = rs.getInt(7);
                 domicilio = domicilioDAOH2.buscarPorId(id_dom);
+
+                int id_odontologo = rs.getInt(8);
+                odontologo = odontologoDAOH2.buscarPorId(id_odontologo);
+
                 paciente = new Paciente(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5), rs.getDate(6).toLocalDate(), domicilio);
+                        rs.getString(4), rs.getInt(5), rs.getDate(6).toLocalDate(), domicilio, odontologo);
             }
 
         } catch (Exception e) {
