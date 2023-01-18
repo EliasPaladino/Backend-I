@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
@@ -30,7 +32,12 @@ public class PacienteController {
         return "index";
     }
 
-    @PostMapping("/registrar")
+    @GetMapping
+    public List<Paciente> listarPacientes(){
+        return pacienteService.listarPacientes();
+    }
+
+    @PostMapping
     public Paciente registrarPaciente(@RequestBody Paciente paciente){
         return pacienteService.guardar(paciente);
     }
