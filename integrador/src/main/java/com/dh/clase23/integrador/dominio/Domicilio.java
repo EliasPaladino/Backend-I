@@ -29,9 +29,14 @@ public class Domicilio {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getCalle() {
         return calle;
     }
+
 
     public int getNumero() {
         return numero;

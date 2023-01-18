@@ -82,6 +82,34 @@ public class OdontologoDAOH2 implements IDao<Odontologo> {
 
     @Override
     public Odontologo guardar(Odontologo odontologo) {
-        return null;
+        Connection connection = null;
+
+        try {
+
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO odontologos (apellido, nombre, matricula) VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, odontologo.getApellido());
+            preparedStatement.setString(2, odontologo.getNombre());
+            preparedStatement.setString(3, odontologo.getMatricula());
+
+            preparedStatement.executeUpdate();
+
+            ResultSet claves = preparedStatement.getGeneratedKeys();
+            while (claves.next()) {
+                odontologo.setId(claves.getInt(1));
+            }
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+        
+        return odontologo;
     }
 }
