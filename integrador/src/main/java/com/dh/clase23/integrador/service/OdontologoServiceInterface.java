@@ -7,4 +7,7 @@ import java.util.List;
 public interface OdontologoServiceInterface {
     List<Odontologo> listarOdontologos();
     Odontologo buscarPorId(int id);
+    Odontologo registar(Odontologo odontologo);
+    Odontologo modificar(Odontologo odontologo);
+    void eliminar(int id);
 }

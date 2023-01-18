@@ -23,4 +23,19 @@ public class OdontologoService implements OdontologoServiceInterface {
     public Odontologo buscarPorId(int id) {
         return odontologoIDao.buscarPorId(id);
     }
+
+    @Override
+    public Odontologo registar(Odontologo odontologo) {
+        return odontologoIDao.guardar(odontologo);
+    }
+
+    @Override
+    public Odontologo modificar(Odontologo odontologo) {
+        return odontologoIDao.actualizar(odontologo);
+    }
+
+    @Override
+    public void eliminar(int id) {
+        odontologoIDao.eliminar(id);
+    }
 }
