@@ -31,4 +31,9 @@ public class OdontologoController {
         return odontologoService.registar(odontologo);
     }
 
+    @PutMapping
+    public Odontologo actualizarOdontologo( @RequestBody Odontologo odontologo ){
+        return odontologoService.modificar(odontologo);
+    }
+
 }
