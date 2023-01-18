@@ -60,7 +60,38 @@ public class PacienteDAOH2 implements IDao<Paciente> {
 
     @Override
     public Paciente buscarPorId(int id) {
-        return null;
+        Connection connection = null;
+        Paciente paciente = null;
+        Domicilio domicilio = null;
+        Odontologo odontologo = null;
+
+        try {
+            connection = getConnection();
+            OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
+            DomicilioDAOH2 domicilioDAOH2 = new DomicilioDAOH2();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM pacientes WHERE id = ?;");
+            preparedStatement.setInt(1, id);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                domicilio = domicilioDAOH2.buscarPorId(rs.getInt(7));
+                odontologo = odontologoDAOH2.buscarPorId(rs.getInt(8));
+
+                paciente = new Paciente(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDate(6).toLocalDate(), domicilio, odontologo);
+            }
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+
+        return paciente;
     }
 
     @Override
@@ -158,7 +189,7 @@ public class PacienteDAOH2 implements IDao<Paciente> {
             domicilioDAOH2.actualizar(paciente.getDomicilio());
             odontologoDAOH2.actualizar(paciente.getOdontologo());
 
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE pacientes SET apellido = ?, nombre = ?, email = ?, dni = ?, fechaIngreso= ? WHERE id = ?;");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE pacientes SET apellido = ?, nombre = ?, email = ?, dni = ?, fecha_ingreso= ? WHERE id = ?;");
             preparedStatement.setString(1, paciente.getApellido());
             preparedStatement.setString(2, paciente.getNombre());
             preparedStatement.setString(3, paciente.getEmail());

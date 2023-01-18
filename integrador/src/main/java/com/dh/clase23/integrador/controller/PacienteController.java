@@ -37,6 +37,11 @@ public class PacienteController {
         return pacienteService.listarPacientes();
     }
 
+    @GetMapping("/{id}")
+    public Paciente mostrarPaciente(@PathVariable int id){
+        return pacienteService.buscarPorId(id);
+    }
+
     @PostMapping
     public Paciente registrarPaciente(@RequestBody Paciente paciente){
         return pacienteService.guardar(paciente);

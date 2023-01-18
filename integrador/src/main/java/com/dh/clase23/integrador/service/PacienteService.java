@@ -27,6 +27,11 @@ public class PacienteService implements PacienteServiceInterface {
     }
 
     @Override
+    public Paciente buscarPorId(int id) {
+        return pacienteIDao.buscarPorId(id);
+    }
+
+    @Override
     public Paciente guardar(Paciente paciente) {
         return pacienteIDao.guardar(paciente);
     }
