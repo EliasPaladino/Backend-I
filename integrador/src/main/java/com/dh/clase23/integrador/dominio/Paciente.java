@@ -12,6 +12,9 @@ public class Paciente {
     private Domicilio domicilio;
     private Odontologo odontologo;
 
+    public Paciente() {
+    }
+
     public Paciente(int id, String apellido, String nombre, String email, int dni, LocalDate fechaIngreso, Domicilio domicilio, Odontologo odontologo) {
         this.id = id;
         this.apellido = apellido;
