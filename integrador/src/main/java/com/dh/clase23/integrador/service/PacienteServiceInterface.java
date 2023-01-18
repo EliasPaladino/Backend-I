@@ -9,4 +9,5 @@ public interface PacienteServiceInterface {
     Paciente buscarPorEmail(String email);
 
     Paciente guardar(Paciente paciente);
+    Paciente actualizar(Paciente paciente);
 }

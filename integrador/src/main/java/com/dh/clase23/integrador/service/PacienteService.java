@@ -30,4 +30,9 @@ public class PacienteService implements PacienteServiceInterface {
     public Paciente guardar(Paciente paciente) {
         return pacienteIDao.guardar(paciente);
     }
+
+    @Override
+    public Paciente actualizar(Paciente paciente) {
+        return pacienteIDao.actualizar(paciente);
+    }
 }
