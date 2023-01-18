@@ -110,6 +110,11 @@ public class PacienteDAOH2 implements IDao<Paciente> {
         try {
 
             connection = getConnection();
+            DomicilioDAOH2 domicilioDAOH2 = new DomicilioDAOH2();
+            OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
+
+            domicilioDAOH2.guardar(paciente.getDomicilio());
+            odontologoDAOH2.guardar(paciente.getOdontologo());
 
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO pacientes (apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) " +
                     "                                                               VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
