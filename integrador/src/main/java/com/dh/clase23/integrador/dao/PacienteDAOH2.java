@@ -112,7 +112,7 @@ public class PacienteDAOH2 implements IDao<Paciente> {
             connection = getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO pacientes (apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) " +
-                    "                                                               VALUES (?, ?, ?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
+                    "                                                               VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, paciente.getApellido());
             preparedStatement.setString(2, paciente.getNombre());
             preparedStatement.setString(3, paciente.getEmail());

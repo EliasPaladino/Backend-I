@@ -109,7 +109,7 @@ public class OdontologoDAOH2 implements IDao<Odontologo> {
                 ex.printStackTrace();
             }
         }
-        
+
         return odontologo;
     }
 }
