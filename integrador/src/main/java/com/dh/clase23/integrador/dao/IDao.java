@@ -8,4 +8,5 @@ public interface IDao <T> {
     T buscarPorEmail(String email);
 
     T guardar(T t);
+    T actualizar(T t);
 }

@@ -41,4 +41,9 @@ public class PacienteController {
     public Paciente registrarPaciente(@RequestBody Paciente paciente){
         return pacienteService.guardar(paciente);
     }
+
+    @PutMapping
+    public Paciente actualizarPaciente(){
+        return null;
+    }
 }

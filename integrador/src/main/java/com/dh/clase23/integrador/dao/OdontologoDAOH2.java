@@ -112,4 +112,32 @@ public class OdontologoDAOH2 implements IDao<Odontologo> {
 
         return odontologo;
     }
+
+    @Override
+    public Odontologo actualizar(Odontologo odontologo) {
+        Connection connection = null;
+
+        try {
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE odontologos SET apellido = ?, nombre = ?, matricula = ? WHERE id = ?;");
+            preparedStatement.setString(1, odontologo.getApellido());
+            preparedStatement.setString(2, odontologo.getNombre());
+            preparedStatement.setString(3, odontologo.getMatricula());
+            preparedStatement.setInt(4, odontologo.getId());
+
+            preparedStatement.executeUpdate();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+
+        return odontologo;
+    }
 }

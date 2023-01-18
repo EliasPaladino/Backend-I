@@ -86,4 +86,34 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
 
         return domicilio;
     }
+
+    @Override
+    public Domicilio actualizar(Domicilio domicilio) {
+        Connection connection = null;
+
+        try {
+
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE domicilios SET calle = ?, numero = ?, localidad = ?, provincia = ? WHERE id = ?;");
+            preparedStatement.setString(1, domicilio.getCalle());
+            preparedStatement.setInt(2, domicilio.getNumero());
+            preparedStatement.setString(3, domicilio.getLocalidad());
+            preparedStatement.setString(4, domicilio.getProvincia());
+            preparedStatement.setInt(5, domicilio.getId());
+
+            preparedStatement.executeUpdate();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+
+        return domicilio;
+    }
 }
