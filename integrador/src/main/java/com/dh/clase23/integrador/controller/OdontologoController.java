@@ -29,5 +29,5 @@ public class OdontologoController {
         return odontologoService.buscarPorId(id);
     }
 
-    
+     
 }
