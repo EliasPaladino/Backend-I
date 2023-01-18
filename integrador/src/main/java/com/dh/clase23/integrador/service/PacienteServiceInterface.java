@@ -11,4 +11,5 @@ public interface PacienteServiceInterface {
 
     Paciente guardar(Paciente paciente);
     Paciente actualizar(Paciente paciente);
+    void eliminar(int id);
 }

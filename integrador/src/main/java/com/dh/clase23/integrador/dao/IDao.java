@@ -9,4 +9,5 @@ public interface IDao <T> {
 
     T guardar(T t);
     T actualizar(T t);
+    void eliminar(int id);
 }

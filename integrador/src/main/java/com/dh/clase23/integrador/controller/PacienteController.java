@@ -51,4 +51,10 @@ public class PacienteController {
     public Paciente actualizarPaciente(@RequestBody Paciente paciente){
         return pacienteService.actualizar(paciente);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable int id){
+        pacienteService.eliminar(id);
+    }
+
 }

@@ -116,4 +116,27 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
 
         return domicilio;
     }
+
+    @Override
+    public void eliminar(int id) {
+        Connection connection = null;
+
+        try {
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM domicilios WHERE id = ?;");
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.executeQuery();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ){
+                ex.printStackTrace();
+            }
+        }
+    }
 }

@@ -211,4 +211,26 @@ public class PacienteDAOH2 implements IDao<Paciente> {
 
         return paciente;
     }
+
+    @Override
+    public void eliminar(int id) {
+        Connection connection = null;
+
+        try {
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM pacientes WHERE id = ?;");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+    }
 }
