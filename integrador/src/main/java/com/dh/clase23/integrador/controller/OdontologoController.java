@@ -36,4 +36,9 @@ public class OdontologoController {
         return odontologoService.modificar(odontologo);
     }
 
+    @DeleteMapping("/{id}")
+    public void eliminarOdontologo( @PathVariable int id ){
+        odontologoService.eliminar(id);
+    }
+
 }
