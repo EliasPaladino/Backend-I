@@ -25,4 +25,9 @@ public class PacienteService implements PacienteServiceInterface {
     public Paciente buscarPorEmail(String email) {
         return pacienteIDao.buscarPorEmail(email);
     }
+
+    @Override
+    public Paciente guardar(Paciente paciente) {
+        return pacienteIDao.guardar(paciente);
+    }
 }

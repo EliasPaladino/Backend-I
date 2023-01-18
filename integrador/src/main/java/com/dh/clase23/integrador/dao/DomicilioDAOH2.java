@@ -50,4 +50,9 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
     public Domicilio buscarPorEmail(String email) {
         return null;
     }
+
+    @Override
+    public Domicilio guardar(Domicilio domicilio) {
+        return null;
+    }
 }

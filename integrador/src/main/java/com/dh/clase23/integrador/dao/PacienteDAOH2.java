@@ -6,6 +6,7 @@ import com.dh.clase23.integrador.dominio.Paciente;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,6 +100,38 @@ public class PacienteDAOH2 implements IDao<Paciente> {
             }
         }
 
+        return paciente;
+    }
+
+    @Override
+    public Paciente guardar(Paciente paciente){
+        Connection connection = null;
+
+        try {
+
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO pacientes (apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) " +
+                    "                                                               VALUES (?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, paciente.getApellido());
+            preparedStatement.setString(2, paciente.getNombre());
+            preparedStatement.setString(3, paciente.getEmail());
+            preparedStatement.setInt(4, paciente.getDni());
+            preparedStatement.setDate(5, Date.valueOf(paciente.getFechaIngreso()));
+            preparedStatement.setInt(6, paciente.getDomicilio().getId());
+            preparedStatement.setInt(7, paciente.getOdontologo().getId());
+
+            preparedStatement.executeQuery();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
         return paciente;
     }
 }

@@ -7,10 +7,10 @@ import com.dh.clase23.integrador.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/pacientes")
 public class PacienteController {
     private final PacienteService pacienteService;
 
@@ -28,5 +28,10 @@ public class PacienteController {
         model.addAttribute("nombreOdontologo", odontologo.getNombre());
         model.addAttribute("apellidoOdontologo", odontologo.getApellido());
         return "index";
+    }
+
+    @PostMapping("/registrar")
+    public Paciente registrarPaciente(@RequestBody Paciente paciente){
+        return pacienteService.guardar(paciente);
     }
 }

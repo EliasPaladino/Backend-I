@@ -79,4 +79,9 @@ public class OdontologoDAOH2 implements IDao<Odontologo> {
     public Odontologo buscarPorEmail(String email) {
         return null;
     }
+
+    @Override
+    public Odontologo guardar(Odontologo odontologo) {
+        return null;
+    }
 }
