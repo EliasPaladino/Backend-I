@@ -3,6 +3,7 @@ package com.dh.clase23.integrador.dao;
 import com.dh.clase23.integrador.dominio.Domicilio;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DomicilioDAOH2 implements IDao<Domicilio>{
@@ -13,7 +14,32 @@ public class DomicilioDAOH2 implements IDao<Domicilio>{
 
     @Override
     public List<Domicilio> listarElementos() {
-        return null;
+        Connection connection = null;
+        List<Domicilio> domicilios = new ArrayList<>();
+        Domicilio domicilio = null;
+
+        try {
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM domicilios");
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                domicilio = new Domicilio(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+                domicilios.add(domicilio);
+            }
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+
+        return domicilios;
     }
 
     @Override
