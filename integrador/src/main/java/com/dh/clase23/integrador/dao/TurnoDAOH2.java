@@ -71,12 +71,19 @@ public class TurnoDAOH2 implements IDao<Turno> {
         try {
             connection = getConnection();
 
+            PacienteDAOH2 pacienteDAOH2 = new PacienteDAOH2();
+            OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
+
+            pacienteDAOH2.guardar(turno.getPaciente());
+            odontologoDAOH2.guardar(turno.getOdontologo());
+
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO turnos (odontologo_id, paciente_id, fecha) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, turno.getOdontologo().getId());
             preparedStatement.setInt(2, turno.getPaciente().getId());
             preparedStatement.setDate(3, turno.getFecha());
+            preparedStatement.executeUpdate();
 
-            ResultSet claves = preparedStatement.executeQuery();
+            ResultSet claves = preparedStatement.getGeneratedKeys();
             while ( claves.next() ) {
                 turno.setId(claves.getInt(1));
             }
