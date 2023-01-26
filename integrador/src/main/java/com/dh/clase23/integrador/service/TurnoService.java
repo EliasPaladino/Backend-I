@@ -18,4 +18,5 @@ public class TurnoService {
     public List<Turno> listarTurnos() {
         return turnoIDao.listarElementos();
     }
+    public Turno guardarTurno(Turno turno) { return turnoIDao.guardar(turno); }
 }
