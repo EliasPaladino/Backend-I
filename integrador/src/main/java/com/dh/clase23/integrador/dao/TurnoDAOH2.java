@@ -5,11 +5,13 @@ import com.dh.clase23.integrador.dominio.Paciente;
 import com.dh.clase23.integrador.dominio.Turno;
 import com.dh.clase23.integrador.service.OdontologoService;
 import com.dh.clase23.integrador.service.PacienteService;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TurnoDAOH2 implements IDao<Turno> {
     private static Connection getConnection() throws Exception {
         Class.forName("org.h2.Driver").newInstance();

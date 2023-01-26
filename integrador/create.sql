@@ -21,6 +21,11 @@ FECHA_INGRESO DATE NOT NULL,
 DOMICILIO_ID INT NOT NULL,
 ODONTOLOGO_ID INT NOT NULL);
 
+DROP TABLE IF EXISTS turnos;
+CREATE TABLE turnos (ID INT AUTO_INCREMENT PRIMARY KEY,
+ODONTOLOGO_ID INT NOT NULL,
+PACIENTE_ID INT NOT NULL,
+FECHA DATE NOT NULL);
 
 
 INSERT INTO domicilios(calle, numero, localidad, provincia) VALUES ('Calle A', 474, 'Cafayate', 'Salta');
@@ -32,3 +37,6 @@ INSERT INTO odontologos(apellido, nombre, matricula) VALUES ('Fernandez', 'Marti
 
 INSERT INTO pacientes(apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) VALUES ('Paladino', 'Elias', 'elias@gmail.com', 12345, '2023-01-16',1, 1);
 INSERT INTO pacientes(apellido, nombre, email, dni, fecha_ingreso, domicilio_id, odontologo_id) VALUES ('Baspineiro', 'Rodolfo', 'rodolfo@gmail.com', 123212, '2023-01-16',2, 2);
+
+INSERT INTO turnos(odontologo_id, paciente_id, fecha) VALUES (1, 1, '2023-01-26');
+INSERT INTO turnos(odontologo_id, paciente_id, fecha) VALUES (2, 2, '2023-01-27');
