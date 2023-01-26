@@ -66,7 +66,32 @@ public class TurnoDAOH2 implements IDao<Turno> {
 
     @Override
     public Turno guardar(Turno turno) {
-        return null;
+        Connection connection = null;
+
+        try {
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO turnos (odontologo_id, paciente_id, fecha) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, turno.getOdontologo().getId());
+            preparedStatement.setInt(2, turno.getPaciente().getId());
+            preparedStatement.setDate(3, turno.getFecha());
+
+            ResultSet claves = preparedStatement.executeQuery();
+            while ( claves.next() ) {
+                turno.setId(claves.getInt(1));
+            }
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+
+        return turno;
     }
 
     @Override
