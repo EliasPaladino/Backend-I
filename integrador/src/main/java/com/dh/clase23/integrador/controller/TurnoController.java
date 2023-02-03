@@ -4,6 +4,7 @@ import com.dh.clase23.integrador.dominio.Turno;
 import com.dh.clase23.integrador.service.OdontologoService;
 import com.dh.clase23.integrador.service.PacienteService;
 import com.dh.clase23.integrador.service.TurnoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +51,13 @@ public class TurnoController {
         return turnoService.actualizarTurno(turno);
     }
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarTurno(@PathVariable int id) {
+        if(turnoService.buscarPorId(id) != null) {
+            turnoService.eliminarTurno(id);
+            return new ResponseEntity<>("Se elimino correctarmente el turno con id: " + id, HttpStatus.OK);
+        }
+        return new ResponseEntity<>("No se ha encontrado un turno con id: " + id, HttpStatus.BAD_REQUEST);
+    }
 
 }

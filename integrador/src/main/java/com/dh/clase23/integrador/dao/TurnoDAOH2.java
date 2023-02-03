@@ -174,7 +174,7 @@ public class TurnoDAOH2 implements IDao<Turno> {
         try {
             connection = getConnection();
 
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE * FROM turnos WHERE id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM turnos WHERE id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
