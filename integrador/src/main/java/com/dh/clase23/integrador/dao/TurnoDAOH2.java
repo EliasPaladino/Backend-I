@@ -138,12 +138,20 @@ public class TurnoDAOH2 implements IDao<Turno> {
             PacienteDAOH2 pacienteDAOH2 = new PacienteDAOH2();
 
             odontologo = odontologoDAOH2.buscarPorId(turno.getOdontologo().getId());
+            if(odontologo == null) {
+                odontologo = odontologoDAOH2.guardar(turno.getOdontologo());
+            }
+            
             paciente = pacienteDAOH2.buscarPorId(turno.getPaciente().getId());
+            if(paciente == null){
+                paciente = pacienteDAOH2.guardar(turno.getPaciente());
+            }
 
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE turnos ODONTOLOGO_ID = ?, PACIENTE_ID = ?, FECHA = ? WHERE id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE turnos SET ODONTOLOGO_ID = ?, PACIENTE_ID = ?, FECHA = ? WHERE id = ?");
             preparedStatement.setInt(1, odontologo.getId());
             preparedStatement.setInt(2, paciente.getId());
             preparedStatement.setDate(3, turno.getFecha());
+            preparedStatement.setInt(4, turno.getId());
             preparedStatement.executeUpdate();
 
         } catch ( Exception e ) {

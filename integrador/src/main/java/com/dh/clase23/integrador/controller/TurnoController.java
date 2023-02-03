@@ -45,4 +45,9 @@ public class TurnoController {
         return mensaje;
     }
 
+    @PutMapping
+    public Turno actualizarTurno(@RequestBody Turno turno) {
+        return turnoService.actualizarTurno(turno);
+    }
+
 }
