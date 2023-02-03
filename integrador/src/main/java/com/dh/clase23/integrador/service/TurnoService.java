@@ -20,4 +20,5 @@ public class TurnoService {
         return turnoIDao.listarElementos();
     }
     public Turno guardarTurno(Turno turno) { return turnoIDao.guardar(turno); }
+    public Turno actualizarTurno(Turno turno) { return turnoIDao.actualizar(turno);}
 }
