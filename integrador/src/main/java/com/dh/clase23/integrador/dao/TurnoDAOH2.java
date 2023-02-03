@@ -56,7 +56,32 @@ public class TurnoDAOH2 implements IDao<Turno> {
 
     @Override
     public Turno buscarPorId(int id) {
-        return null;
+        Connection connection = null;
+        Turno turno = null;
+
+        try {
+            connection = getConnection();
+            OdontologoDAOH2 odontologoDAOH2 = null;
+            PacienteDAOH2 pacienteDAOH2 = null;
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM turnos WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                turno = new Turno(rs.getInt(1), odontologoDAOH2.buscarPorId(rs.getInt(2)), pacienteDAOH2.buscarPorId(rs.getInt(3)), rs.getDate(4));
+            }
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
+        return turno;
     }
 
     @Override
