@@ -23,6 +23,11 @@ public class TurnoController {
         this.pacienteService = pacienteService;
     }
 
+    @GetMapping("/{id}")
+    public Turno buscarPorId(@PathVariable int id) {
+        return turnoService.buscarPorId(id);
+    }
+
     @GetMapping
     public List<Turno> listarTurnos() {
         return turnoService.listarTurnos();

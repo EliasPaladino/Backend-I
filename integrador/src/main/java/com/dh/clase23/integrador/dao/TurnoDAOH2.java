@@ -61,8 +61,8 @@ public class TurnoDAOH2 implements IDao<Turno> {
 
         try {
             connection = getConnection();
-            OdontologoDAOH2 odontologoDAOH2 = null;
-            PacienteDAOH2 pacienteDAOH2 = null;
+            OdontologoDAOH2 odontologoDAOH2 = new OdontologoDAOH2();
+            PacienteDAOH2 pacienteDAOH2 = new PacienteDAOH2();
 
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM turnos WHERE id = ?");
             preparedStatement.setInt(1, id);
