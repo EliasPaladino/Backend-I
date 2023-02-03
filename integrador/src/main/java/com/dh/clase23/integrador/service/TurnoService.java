@@ -21,4 +21,5 @@ public class TurnoService {
     }
     public Turno guardarTurno(Turno turno) { return turnoIDao.guardar(turno); }
     public Turno actualizarTurno(Turno turno) { return turnoIDao.actualizar(turno);}
+    public void eliminarTurno(int id) { turnoIDao.eliminar(id); }
 }
