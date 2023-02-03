@@ -141,7 +141,7 @@ public class TurnoDAOH2 implements IDao<Turno> {
             if(odontologo == null) {
                 odontologo = odontologoDAOH2.guardar(turno.getOdontologo());
             }
-            
+
             paciente = pacienteDAOH2.buscarPorId(turno.getPaciente().getId());
             if(paciente == null){
                 paciente = pacienteDAOH2.guardar(turno.getPaciente());
@@ -169,6 +169,23 @@ public class TurnoDAOH2 implements IDao<Turno> {
 
     @Override
     public void eliminar(int id) {
+        Connection connection = null;
 
+        try {
+            connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE * FROM turnos WHERE id = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch ( SQLException ex ) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
