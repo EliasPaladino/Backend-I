@@ -15,6 +15,7 @@ public class TurnoService {
         this.turnoIDao = turnoIDao;
     }
 
+    public Turno buscarPorId(int id) { return turnoIDao.buscarPorId(id); }
     public List<Turno> listarTurnos() {
         return turnoIDao.listarElementos();
     }
